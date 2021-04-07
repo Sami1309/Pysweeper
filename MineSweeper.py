@@ -29,6 +29,15 @@ class MineSweeper(object):
                 bombPos = (random.randrange(self.height), random.randrange(self.width))
             self.board[bombPos[0]][bombPos[1]][0] = -1
     
+    def getTileContents(self, row, col):
+        return self.board[row][col][0]
+    
+    def getBomb(self,row,col):
+        if self.board[row][col][0] == -1:
+            return True
+        else:
+            return False
+
     def generateAdjacencies(self):
         
         for i in range(self.height):
